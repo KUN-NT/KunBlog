@@ -16,7 +16,7 @@
           >
             <a href="javascript:;" @click="getarticle(article.articlE_ID)">
               <el-card shadow="hover">
-                <h4>{{article.articlE_TITLE}}</h4>
+                <span class="blog_font_small">{{article.articlE_TITLE}}</span>
                 <p>{{article.articlE_CONTENT}}</p>
               </el-card>
             </a>

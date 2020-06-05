@@ -79,4 +79,15 @@ a {
   position: fixed;
   top: 0;
 }
+.blog_font{
+  color:#0099cc;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing:3px;
+}
+.blog_font_small{
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing:2px;
+}
 </style>

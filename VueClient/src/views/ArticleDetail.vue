@@ -13,7 +13,7 @@
       <el-col :span="18" :offset="3">
         <el-card shadow="hover">
           <div slot="header">
-            <span>{{article.articlE_TITLE}}</span>
+            <span class="blog_font">{{article.articlE_TITLE}}</span>
           </div>
           <div>{{article.articlE_CONTENT}}</div>
         </el-card>
@@ -30,7 +30,7 @@
                 src="https://pic.cnblogs.com/avatar/1195605/20200315104809.png"
               ></el-avatar>
             </el-col>
-            <el-col :span="10" :offset="1">
+            <el-col :span="10" :offset="1" class="blog_font_small">
               <p>作者:&nbsp;{{article.useR_ID}}</p>
               <p>创建时间:&nbsp;{{article.creatE_DATE}}</p>
             </el-col>

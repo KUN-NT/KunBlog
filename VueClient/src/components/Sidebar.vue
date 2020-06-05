@@ -2,28 +2,28 @@
   <div>
     <el-card  class="sidebar_type" shadow="hover" v-if="typeList.length > 0">
         <div slot="header">
-            <span>分类</span>
+            <span style="font-weight:700;">分类</span>
         </div>
         <div>
-          <el-tag class="type_item"
-            v-for="(type,index) in typeList"
-            :key="index"
+          <el-badge class="type_item" v-for="(type,index) in typeList" :key="index" :value="parseInt(type.articlE_NUM)" :max="99">
+          <el-tag 
             :type="type.typE_STYLE"
             @click="clickType(type.typE_ID)"
           >{{type.typE_NAME}}</el-tag>
+          </el-badge>
         </div>
      </el-card>
      <el-card  class="sidebar_tag" shadow="hover" v-if="tagList.length > 0">
         <div slot="header">
-            <span>标签</span>
+            <span style="font-weight:700;">标签</span>
         </div>
         <div>
-          <el-tag class="tag_item"
-            v-for="(tag,index) in tagList"
-            :key="index"
+          <el-badge class="tag_item" v-for="(tag,index) in tagList" :key="index" :value="parseInt(tag.articlE_NUM)" :max="99">
+          <el-tag 
             :type="tag.taG_STYLE"
             @click="clickTag(tag.taG_ID)"
           >{{tag.taG_NAME}}</el-tag>
+          </el-badge>
         </div>
      </el-card>
   </div>
@@ -71,7 +71,7 @@ export default {
     margin-bottom: 10px;
   }
   .type_item,.tag_item{
-    margin: 2px 5px;
+    margin: 0 15px 20px 15px;
   }
   .type_item:hover,.tag_item:hover{
     cursor:pointer;

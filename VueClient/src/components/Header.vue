@@ -1,6 +1,12 @@
 <template>
-  <el-menu :default-active="activeIndex" mode="horizontal">
-        <el-menu-item v-for="(menu,index) in menuData" :key="index" :index="menu.menU_ID">
+  <el-menu :default-active="activeIndex" mode="horizontal" text-color="#aaa" active-text-color="#0099cc" class="el-menu-demo">
+        <el-menu-item>
+          <el-image
+          style="width: 100px; height: 80% ;margin-right: 10px"
+          :src="'https://img.alicdn.com/tfs/TB1Ly5oS3HqK1RjSZFPXXcwapXa-238-54.png'"
+          :fit="'contain'"></el-image>
+        </el-menu-item>
+        <el-menu-item v-for="(menu,index) in menuData" :key="index" :index="menu.menU_ID" >
           <a href="javascript:;" target="_self" @click="goPage(menu.menU_PATH)">{{menu.menU_NAME}}</a>
         </el-menu-item>
         <el-menu-item style="float:right">
@@ -46,8 +52,13 @@ export default {
 </script>
 
 <style>
+.el-menu-demo{
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing:3px;
+}
 .el-select .el-input {
-  width: 100px;
+  width: 80px;
 }
 .input-with-select .el-input-group__prepend {
   background-color: #fff;

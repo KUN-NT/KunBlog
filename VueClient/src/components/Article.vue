@@ -2,7 +2,7 @@
   <div>
     <el-card class="box-card" shadow="hover" v-for="(article,index) in articleData" :key="index">
       <div slot="header" class="clearfix" @click="getArticle(article.articlE_ID)">
-        <span>{{article.articlE_TITLE}}</span>
+        <span class="blog_font">{{article.articlE_TITLE}}</span>
       </div>
       <div class="text item">{{article.articlE_CONTENT}}</div>
     </el-card>

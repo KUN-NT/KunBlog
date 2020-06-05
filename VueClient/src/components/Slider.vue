@@ -1,5 +1,5 @@
 <template>
-  <el-carousel trigger="click">
+  <el-carousel trigger="click" class="slider">
     <el-carousel-item v-for="(item,index) in articleData" :key="index">
       <div @click="getArticle(item.articlE_ID)">
         <h3 class="small">{{ item.articlE_TITLE }}</h3>
@@ -39,9 +39,10 @@ export default {
 }
 .el-carousel__item h3 {
   color: #fff;
-  font-size: 18px;
+  font-size: 30px;
   opacity: 0.75;
   line-height: 300px;
+  letter-spacing:30px;
   margin: 0;
 }
 
@@ -51,5 +52,9 @@ export default {
 
 .el-carousel__item:nth-child(2n + 1) {
   background: #ffffff url('../../static/1.png') no-repeat center center;
+}
+
+.slider:hover{
+    cursor:pointer;
 }
 </style>
