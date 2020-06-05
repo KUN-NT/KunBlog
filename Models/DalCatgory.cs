@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace KunBlog.SDM.Models
+namespace KunBlog.DAL.Models
 {
-	/// <summary>
-	/// 关注分类表
-	/// </summary>
-	public class SysFollowType
+	public class DalCatgory
 	{
+		//文章数量
+		[MaxLength()]
+		public String ARTICLE_NUM {get;set;}
+
 		//CREATE_DATE
 		public DateTime? CREATE_DATE {get;set;}
 
-		//关注分组编号
+		//TYPE_ID
 		[Key]
 		[MaxLength(36)]
 		public String TYPE_ID {get;set;}
 
-		//分组名
+		//TYPE_NAME
 		[MaxLength(50)]
 		public String TYPE_NAME {get;set;}
 
-		//所属用户
+		//USER_ID
 		[MaxLength(36)]
 		public String USER_ID {get;set;}
 

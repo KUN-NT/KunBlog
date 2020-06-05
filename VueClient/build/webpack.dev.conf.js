@@ -10,6 +10,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+//===1、模拟后台数据Start===
+const express = require('express')
+const app = express()//请求server
+var articleData = require('../mock/article.json')
+var menuData = require('../mock/menu.json')
+var apiRoutes = express.Router()
+app.use('/api', apiRoutes)//通过路由请求数据
+//===模拟后台数据End===
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
@@ -42,7 +51,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
+    },
+    //===2、模拟后台数据Start===
+    before(app) {
+      app.get('/api/article', (req, res) => {
+        res.json(articleData)
+      }),
+      app.get('/api/menu', (req, res) => {
+        res.json(menuData)
+      })
     }
+    //===模拟后台数据End===
   },
   plugins: [
     new webpack.DefinePlugin({

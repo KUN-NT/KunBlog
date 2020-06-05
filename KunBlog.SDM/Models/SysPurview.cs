@@ -5,6 +5,9 @@ using System.Text;
 
 namespace KunBlog.SDM.Models
 {
+	/// <summary>
+	/// È¨ÏÞ±í
+	/// </summary>
 	public class SysPurview
 	{
 		//PURVIEW_ID

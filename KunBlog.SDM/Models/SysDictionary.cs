@@ -5,6 +5,9 @@ using System.Text;
 
 namespace KunBlog.SDM.Models
 {
+	/// <summary>
+	/// 字典表
+	/// </summary>
 	public class SysDictionary
 	{
 		//CREATE_BY

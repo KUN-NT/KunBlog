@@ -25,9 +25,23 @@ namespace KunBlog.SDM.Controllers
 
         // GET api/user/userId
         [HttpGet("/api/user/{userId}")]
-        public List<SysUser> GetUserById(string userId)
+        public SysUser GetUserById(string userId)
         {
-            return _coreDbContext.Set<SysUser>().Where(p=>p.USER_ID==userId).ToList();
+            return _coreDbContext.Set<SysUser>().FirstOrDefault(p => p.USER_ID == userId);
+        }
+
+        [HttpGet("/api/user/{userId}/{password}")]
+        public SysUser GetUserById(string userId, string password)
+        {
+            var loginUser = _coreDbContext.Set<SysUser>().FirstOrDefault(p => p.USER_ID == userId && p.USER_PASSWORD == password);
+            if (loginUser == null)
+            {
+                return null;
+            }
+            else
+            {
+                return loginUser;
+            }
         }
 
         //[HttpGet]

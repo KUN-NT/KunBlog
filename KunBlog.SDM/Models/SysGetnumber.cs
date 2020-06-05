@@ -5,6 +5,9 @@ using System.Text;
 
 namespace KunBlog.SDM.Models
 {
+	/// <summary>
+	/// È¡ºÅ±í
+	/// </summary>
 	public class SysGetnumber
 	{
 		//CREATE_BY

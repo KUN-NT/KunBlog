@@ -5,6 +5,9 @@ using System.Text;
 
 namespace KunBlog.SDM.Models
 {
+	/// <summary>
+	/// 菜单表
+	/// </summary>
 	public class SysMenu
 	{
 		//CREATE_BY
@@ -30,6 +33,10 @@ namespace KunBlog.SDM.Models
 		//父菜单
 		[MaxLength(36)]
 		public String MENU_PARENT {get;set;}
+
+		//菜单序号
+		[MaxLength(3)]
+		public String MENU_SEQ { get; set; }
 
 		//菜单路径
 		[MaxLength(100)]

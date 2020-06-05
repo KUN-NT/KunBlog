@@ -4,19 +4,19 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KunBlog.SDM.Models
+namespace KunBlog.DAL.Models
 {
-	public class SysRoleUser
+	public class DalArticleCatgory
 	{
-		//ROLE_ID
+		//ARTICLE_ID
 		[Key, Column(Order = 2)]
 		[MaxLength(36)]
-		public String ROLE_ID {get;set;}
+		public String ARTICLE_ID {get;set;}
 
-		//USER_ID
+		//TYPE_ID
 		[Key, Column(Order = 1)]
 		[MaxLength(36)]
-		public String USER_ID {get;set;}
+		public String TYPE_ID {get;set;}
 
 	}
 }

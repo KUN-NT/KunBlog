@@ -5,6 +5,9 @@ using System.Text;
 
 namespace KunBlog.SDM.Models
 {
+	/// <summary>
+	/// 角色表
+	/// </summary>
 	public class SysRole
 	{
 		//角色编号

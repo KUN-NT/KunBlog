@@ -5,6 +5,9 @@ using System.Text;
 
 namespace KunBlog.SDM.Models
 {
+	/// <summary>
+	/// 用户表
+	/// </summary>
 	public class SysUser
 	{
 		//CREATE_BY

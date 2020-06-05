@@ -1,0 +1,17 @@
+[
+    {
+        "menuId":"1",
+        "menuName":"首页",
+        "path":"/"
+    },
+    {
+        "menuId":"2",
+        "menuName":"时间线",
+        "path":"/history"
+    },
+    {
+        "menuId":"3",
+        "menuName":"关于我",
+        "path":"/about"
+    }
+]

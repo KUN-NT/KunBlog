@@ -48,7 +48,7 @@ namespace GenerateModelTool
                     fs.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -57,15 +57,31 @@ namespace GenerateModelTool
         public static string CreateModel(string nameSpace, string tableName, DataTable model)
         {
             StringBuilder sb = new StringBuilder();
+            int temp = 0;
+            int i = 0;
+            foreach (DataRow row in model.Rows)
+            {
+                var COLUMN_KEY = row.ItemArray[4].ToString().ToUpper();
+                if (COLUMN_KEY.Equals("PRI"))
+                {
+                    i++;
+                }
+            }
+            temp = i;
             sb.AppendLine("using System;");
             sb.AppendLine("using System.Collections.Generic;");
             sb.AppendLine("using System.ComponentModel.DataAnnotations;");
             sb.AppendLine("using System.Text;");
+            if (i > 1)
+            {
+                sb.AppendLine("using System.ComponentModel.DataAnnotations.Schema;");
+            }
             sb.AppendLine("");
             sb.AppendLine($"namespace {nameSpace}");
             sb.AppendLine("{");
             sb.AppendLine($"\tpublic class {tableName}");
             sb.AppendLine("\t{");
+            
             foreach (DataRow row in model.Rows)
             {
                 var COLUMN_NAME = row.ItemArray[0].ToString();
@@ -74,11 +90,19 @@ namespace GenerateModelTool
                 var COLUMN_LENGTH = row.ItemArray[2].ToString();
                 var COLUMN_COMMENT = row.ItemArray[3].ToString();
                 var COLUMN_KEY = row.ItemArray[4].ToString().ToUpper();
-                
+
                 sb.AppendLine($"\t\t//{(string.IsNullOrEmpty(COLUMN_COMMENT) ? COLUMN_NAME : COLUMN_COMMENT)}");
                 if (COLUMN_KEY.Equals("PRI"))
                 {
-                    sb.AppendLine("\t\t[Key]");
+                    if (i > 1)
+                    {
+                        sb.AppendLine($"\t\t[Key, Column(Order = {temp})]");
+                        temp--;
+                    }
+                    else
+                    {
+                        sb.AppendLine("\t\t[Key]");
+                    }
                 }
                 if (COLUMN_TYPE.Equals("String"))
                 {
